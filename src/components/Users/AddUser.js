@@ -1,10 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "../UI/Card";
+import Button from "../UI/Button";
 import classes from "./AddUser.module.css";
 
 function AddUser(props) {
+  const [enteredUsername, setEnteredUsername] = useState("");
+  const [enteredAge, setEnteredAge] = useState("");
+
   const addUserHandler = event => {
     event.preventDefault();
+    console.log(enteredUsername, enteredAge);
+  };
+
+  // input에 키 입력이 있을 때마다 작동하게 될 함수이다.
+  const usernameChangeHandler = event => {
+    setEnteredUsername(event.target.value);
+  };
+
+  const ageChangeHandler = event => {
+    setEnteredAge(event.target.value);
   };
 
   return (
@@ -16,10 +30,10 @@ function AddUser(props) {
         {" "}
         {/* form이 제출 되었을 때 실행되어야 하는 함수 추가 */}
         <label htmlFor="username">Username</label>
-        <input id="username" type="text" />
+        <input id="username" type="text" onChange={usernameChangeHandler} />
         <label htmlFor="age">Age (Years)</label>
-        <input id="age" type="number" />
-        <button type="submit">Add User</button>
+        <input id="age" type="number" onChange={ageChangeHandler} />
+        <Button type="submit">Add User</Button>
       </form>
     </Card>
   );

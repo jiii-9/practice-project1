@@ -18,7 +18,7 @@ function AddUser(props) {
       // +기호를 넣으면 입력된 나이값을 숫자형으로 바꿀 수 있다.
       return;
     }
-    console.log(enteredUsername, enteredAge);
+    props.onAddUser(enteredUsername, enteredAge);
     setEnteredUsername("");
     setEnteredAge("");
   };

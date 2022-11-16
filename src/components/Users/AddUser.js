@@ -9,7 +9,18 @@ function AddUser(props) {
 
   const addUserHandler = event => {
     event.preventDefault();
+    if (enteredUsername.trim().length === 0 || enteredAge.trim().length === 0) {
+      return;
+    }
+
+    // useState에서 문자열로 설정해놨기 때문에 입력되는 값은 숫자가 아닌 문자열로 반환된다.
+    if (+enteredAge < 1) {
+      // +기호를 넣으면 입력된 나이값을 숫자형으로 바꿀 수 있다.
+      return;
+    }
     console.log(enteredUsername, enteredAge);
+    setEnteredUsername("");
+    setEnteredAge("");
   };
 
   // input에 키 입력이 있을 때마다 작동하게 될 함수이다.
@@ -30,9 +41,19 @@ function AddUser(props) {
         {" "}
         {/* form이 제출 되었을 때 실행되어야 하는 함수 추가 */}
         <label htmlFor="username">Username</label>
-        <input id="username" type="text" onChange={usernameChangeHandler} />
+        <input
+          id="username"
+          type="text"
+          value={enteredUsername}
+          onChange={usernameChangeHandler}
+        />
         <label htmlFor="age">Age (Years)</label>
-        <input id="age" type="number" onChange={ageChangeHandler} />
+        <input
+          id="age"
+          type="number"
+          value={enteredAge}
+          onChange={ageChangeHandler}
+        />
         <Button type="submit">Add User</Button>
       </form>
     </Card>

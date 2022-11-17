@@ -51,6 +51,7 @@ function AddUser(props) {
     <Wrapper>
       {" "}
       {/* div 대신 감싸는 용도로만 사용하는 Wrapper 컴포넌트로 감싸준다. */}
+      {/* 연습으로 Wrapper 컴포넌트를 만들어 감싸줬지만 실제로는 이 방식으로 하지 않는다. => React.Fragment, <></> 사용 */}
       {error && (
         <ErrorModal
           title={error.title}

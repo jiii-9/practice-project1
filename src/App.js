@@ -16,10 +16,13 @@ function App() {
   };
 
   return (
-    <div>
+    // <></> 로 사용해도 되지만 빌드 워크플로가 지원하지 않으면 작동되지 않을수도 있다. => 프로젝트 설정에 따라 다른다.
+    <React.Fragment>
+      {" "}
+      {/* React를 import 했으면 항상 작동한다. => 혹은 Fragment를 직접 import해도 된다. */}
       <AddUser onAddUser={addUserHandler} />
       <UsersList users={usersList} />
-    </div>
+    </React.Fragment>
   );
 }
 

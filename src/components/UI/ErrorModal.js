@@ -34,6 +34,8 @@ function ErrorModal(props) {
       {/* ErrorModal에서 onClick을 설정하고 onConfirm prop에서 얻은 함수를 Backdrop 컴포넌트 내부의 onClick prop으로 전달해준다. */}
       {/* createPortal의 두 번째 인수는 pointer이다. => 요소가 렌더링되어야 하는 실제 DOM의 컨터이너를 가리킨다. */}
       {/* 이 때 문자열로 id의 이름을 적으면 안되고, DOM API를 이용해야 한다. => document.getElementById */}
+
+      {/* portal은 렌더링된 HTML 내용을 다른 곳으로 옮겨주는 것이 핵심이다. */}
       {ReactDOM.createPortal(
         <Backdrop onConfirm={props.onConfirm} />,
         document.getElementById("backdrop-root")

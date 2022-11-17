@@ -6,6 +6,7 @@ function App() {
   const [usersList, setUsersList] = useState([]);
 
   const addUserHandler = (uName, uAge) => {
+    // 상태 끌어올리기
     setUsersList(prevUsersList => {
       return [
         ...prevUsersList,
